@@ -3,7 +3,7 @@
 
 class Main {
     public static void main(String[] args) {
-        Fraction ethansCosmicness = new Fraction("67/3");
+        Fraction ethansCosmicness = new Fraction("8/32");
         ethansCosmicness.reduce();
     }
 }
@@ -38,13 +38,15 @@ class Fraction {
     }
     
     public void reduce() {
-		int num = 0;
-		int den = 0;
-		while (num != den || (num == 1 || den == 1)){
+		int num = 1;
+		int den = -1;
+		while (num != den){
             num = primeCheck(numerator);
     		den = primeCheck(denominator);
-			numerator /= num;
-			denominator /= num;
+            //System.out.println(num + " | " + den);
+            if (den == 1 || num == 1) break;
+			numerator /= Math.max(num, den);
+			denominator /= Math.max(num, den);
 		}
 		System.out.println("Fraction simplified into: " + numerator + "/" + denominator);
 	}
@@ -55,7 +57,7 @@ class Fraction {
             return 1;
         n = Math.abs(n);
 
-        for (int i = 2; i < n; i++)
+        for (int i = 2; i <= n; i++)
             if (n % i == 0)
                 return i;
 
@@ -76,5 +78,13 @@ class Fraction {
 	
 	public int getDenom() {
 		return denominator;
+	}
+
+    public void setNum(int val) {
+		numerator = val;
+	}
+	
+	public int setDenom(int val) {
+		denominator = val;
 	}
 }
