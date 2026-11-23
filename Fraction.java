@@ -99,7 +99,7 @@ class Fraction {
 	}
 	
 	public double toDouble() {
-		return (int)numerator / denominator;
+		return (double)numerator / denominator;
 	}
     
     public int getNum() {
