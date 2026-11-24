@@ -93,6 +93,10 @@ class Fraction {
 
         return 1;
 	}
+
+	public boolean equals(Fraction f) {
+		return (f.reduce().toString().equals(this.reduce().toString());
+	}
     
     public String toString() {
 		return numerator + "/" + denominator;
