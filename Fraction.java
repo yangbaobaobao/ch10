@@ -3,8 +3,7 @@
 
 class Main {
     public static void main(String[] args) {
-        Fraction ethansCosmicness = new Fraction("8/32");
-        ethansCosmicness = Fraction.add(ethansCosmicness, ethansCosmicness);
+        Fraction a = Fraction.divide(new Fraction(3,8), new Fraction(8,8));
     }
 }
 
@@ -73,10 +72,12 @@ class Fraction {
 		while (true){
             num = primeCheck(numerator);
     		den = primeCheck(denominator);
-            //System.out.println(num + " | " + den);
+            System.out.println(num + " | " + den);
+            System.out.println(numerator + " &| " + denominator);
             if (den == 1 || num == 1) break;
-			numerator /= Math.max(num, den);
-			denominator /= Math.max(num, den);
+            if (den!=num) break;
+    			numerator /= Math.max(num, den);
+    			denominator /= Math.max(num, den);
 		}
 		System.out.println("Fraction simplified into: " + numerator + "/" + denominator);
 	}
@@ -95,7 +96,7 @@ class Fraction {
 	}
 
 	public boolean equals(Fraction f) {
-		return (f.toString().equals(this.toString());
+		return (f.toString().equals(this.toString()));
 	}
     
     public String toString() {
