@@ -91,14 +91,17 @@ class Fraction {
     }
     
     public void reduce() {
-		int num = -1;
+		int num = 1;
 		int den = -1;
 		while (true){
             num = primeCheck(numerator);
     		den = primeCheck(denominator);
+            System.out.println(num + " | " + den);
+            System.out.println(numerator + " &| " + denominator);
             if (den == 1 || num == 1) break;
-			numerator /= Math.max(num, den);
-			denominator /= Math.max(num, den);
+            if (den!=num) break;
+    			numerator /= Math.max(num, den);
+    			denominator /= Math.max(num, den);
 		}
 		System.out.println("Fraction simplified into: " + numerator + "/" + denominator);
 	}
